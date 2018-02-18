@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TicTacToeExtremeMultiplayer</string>
+
+    <string name="title_activity_test">TestActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
