@@ -5,7 +5,46 @@
     android:layout_height="match_parent"
     android:background="#eeeeee"
     android:gravity="center"
+
     tools:context="com.ajce.blake.tictactoex.GamePlay">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/txtPlayer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:background="#cccc"
+            android:fontFamily="serif-monospace"
+            android:text=""
+            android:textAlignment="gravity"
+            android:textColor="#000"
+            android:textSize="20sp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/txtPlayer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="3"
+            android:background="#cccc"
+            android:fontFamily="serif-monospace"
+            android:text=""
+            android:textAlignment="gravity"
+            android:textColor="#000"
+            android:textSize="20sp" />
+    </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
@@ -14,29 +53,46 @@
 
         <Button
             android:id="@+id/button_00"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_01"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
-            android:onClick="buClick" />
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
+            android:onClick="buClick"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_02"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
     </TableRow>
 
     <TableRow
@@ -46,62 +102,146 @@
 
         <Button
             android:id="@+id/button_10"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_11"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_12"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/button_20"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_21"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
 
         <Button
             android:id="@+id/button_22"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="50pt"
             android:layout_height="50pt"
-            android:layout_margin="3dp"
-            android:background="@android:color/white"
+            android:layout_margin="1dp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="serif-monospace"
             android:onClick="buClick"
-            android:text="" />
+            android:text=""
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="80sp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/btnReset"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50pt"
+            android:layout_height="20pt"
+            android:layout_margin="1dp"
+            android:background="#fff"
+            android:fontFamily="serif-monospace"
+            android:onClick="buClick"
+            android:text="RESET"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnRestart"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50pt"
+            android:layout_height="20pt"
+            android:layout_margin="1dp"
+            android:background="#fff"
+            android:fontFamily="serif-monospace"
+            android:onClick="buClick"
+            android:text="RESTART"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnScoreCard"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50pt"
+            android:layout_height="20pt"
+            android:layout_margin="1dp"
+            android:background="#fff"
+            android:fontFamily="serif-monospace"
+            android:onClick="buClick"
+            android:text="SCORE"
+            android:textColor="#000"
+            android:textSize="20sp" />
     </TableRow>
 </TableLayout>
