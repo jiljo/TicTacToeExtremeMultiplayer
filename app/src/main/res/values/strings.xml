@@ -12,4 +12,9 @@
     <string name="title_activity_flash_screen">flashScreen</string>
     <string name="button">Button</string>
     <string name="play">PLAY</string>
+    <string name="reset">RESET</string>
+    <string name="restart">RESTART</string>
+    <string name="score">SCORE</string>
+    <string name="player_x">Player X</string>
+    <string name="player_0">Player 0</string>
 </resources>

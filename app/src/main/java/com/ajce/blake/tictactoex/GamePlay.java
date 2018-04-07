@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,13 +15,15 @@ import android.widget.TextView;
 
 public class GamePlay extends Activity implements View.OnClickListener {
 
-    Button btnReset, btnRestart, btnScore;
+    Button btnReset, btnRestart, btnScore, btnXScore, btnOScore;
     TextView txtPlayer1, txtPlayer2;
     SharedPreferences getPlayerData;
     String player1, player2;
+    MediaPlayer playTone, playScore;
     //
     private Button[][] buttons = new Button[3][3];
     private boolean player1Turn = true;
+    private boolean firstMoveX = true;
     private int roundCount;
     private int player1Points;
     private int player2Points;
@@ -32,7 +35,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
 //      //go fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.game_play);
-
+        playTone = MediaPlayer.create(GamePlay.this, R.raw.play_bg);
 
         /*initialize button obj array*/
         for (int i = 0; i < 3; i++) {
@@ -51,17 +54,25 @@ public class GamePlay extends Activity implements View.OnClickListener {
         //player data
         //get player data
         getPlayerData = getSharedPreferences("playerData", Context.MODE_PRIVATE);
-        player1 = getPlayerData.getString("playerX", "Player X").toString();
-        player2 = getPlayerData.getString("playerO", "Player O").toString();
+        player1 = getPlayerData.getString("playerX", "Player X");
+        player2 = getPlayerData.getString("playerO", "Player O");
         txtPlayer1 = findViewById(R.id.txtPlayer1);
         txtPlayer2 = findViewById(R.id.txtPlayer2);
-        txtPlayer2.setText(" O : " + player2 + " : " + player2Points);
-        txtPlayer1.setText(" X : " + player1 + " : " + player1Points);
+
+        btnXScore = findViewById(R.id.btnXScore);
+        btnOScore = findViewById(R.id.btnOScore);
+
+        //player points and player names
+        btnXScore.setText(String.valueOf(player1Points));
+        btnOScore.setText(String.valueOf(player2Points));
+        txtPlayer2.setText(player2);
+        txtPlayer1.setText(player1);
 
         //play controls
         btnReset = findViewById(R.id.btnReset);
         btnRestart = findViewById(R.id.btnRestart);
         btnScore = findViewById(R.id.btnScoreCard);
+
         btnScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,23 +97,26 @@ public class GamePlay extends Activity implements View.OnClickListener {
 
     }
 
-    public void buClick(View view) {
-
-    }
-
 
     //play button click handler
     @Override
     public void onClick(View v) {
+
+        playTone.start();
+
         if (!((Button) v).getText().toString().equals("")) {
             return;
         }
 
         if (player1Turn) {
             ((Button) v).setText("X");
+            v.setBackground(getDrawable(R.drawable.playx));
+            v.setBackground(getDrawable(R.drawable.playx));
         } else {
             ((Button) v).setText("O");
+            v.setBackground(getDrawable(R.drawable.playo));
         }
+
 
         roundCount++;
 
@@ -110,13 +124,17 @@ public class GamePlay extends Activity implements View.OnClickListener {
             if (player1Turn) {
                 player1Points++;
                 player1Wins();
+                player1Turn = true;
             } else {
                 player2Points++;
                 player2Wins();
+                player1Turn = false;
             }
         } else if (roundCount == 9) {
             draw++;
             draw();
+            player1Turn = !firstMoveX;
+            firstMoveX = false;
         } else {
             player1Turn = !player1Turn;
         }
@@ -165,15 +183,14 @@ public class GamePlay extends Activity implements View.OnClickListener {
 //        Toast.makeText(this, "Player 1 Wins\nScore: " + player1Points, Toast.LENGTH_SHORT).show();
 //        resetPlay();
         userAlert(player1 + " Wins\nScore: " + player1Points);
-        txtPlayer1.setText(" X : " + player1 + " : " + player1Points);
+        btnXScore.setText(String.valueOf(player1Points));
     }
 
     private void player2Wins() {
 //        Toast.makeText(this, "Player 2 Wins\nScore: " + player2Points, Toast.LENGTH_SHORT).show();
 //        resetPlay();
         userAlert(player2 + " Wins\nScore: " + player2Points);
-        txtPlayer2.setText(" O : " + player2 + " : " + player2Points);
-        txtPlayer2.setText(" X : " + player2 + " : " + player2Points);
+        btnOScore.setText(String.valueOf(player2Points));
 
     }
 
@@ -185,6 +202,10 @@ public class GamePlay extends Activity implements View.OnClickListener {
     }
 
     private void userAlert(String alert) {
+
+        playScore = MediaPlayer.create(GamePlay.this, R.raw.score);
+        playScore.start();
+
         AlertDialog.Builder userAlert = new AlertDialog.Builder(this);
         userAlert.setMessage(alert);
         userAlert.setTitle("TIC TAC TOE EXTREME!");
@@ -206,6 +227,7 @@ public class GamePlay extends Activity implements View.OnClickListener {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 buttons[i][j].setText("");
+                buttons[i][j].setBackground(getDrawable(R.drawable.btn_bg));
             }
         }
 
@@ -222,6 +244,8 @@ public class GamePlay extends Activity implements View.OnClickListener {
     private void scoreCard() {
         int totalPlay = player1Points + player2Points + draw;
         String score = "Total Plays : " + totalPlay + "\n" + player1 + " : " + player1Points + "\n" + player2 + " : " + player2Points + "\nDraw : " + draw;
+
+
         userAlert(score);
     }
 }
